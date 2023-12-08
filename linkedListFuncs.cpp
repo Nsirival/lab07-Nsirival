@@ -43,19 +43,16 @@ int recursiveLargestValue(Node* head) {
  * Example: n1 -> n2 -> n3 -> n4 -> n5, k = 3
  * Return &n3
  */
-Node* recursiveDeleteKthNode(Node *head, int k) {
-    if(k == 0){
-      Node * newnode = head -> next;
-      return newnode;
-    } else if (k == 1){
-      head -> next = recursiveDeleteKthNode(head-> next, k - 1)
-    } 
-      } else {
-      recursiveDeleteKthNode(head-> next, k - 1);
-    }
+
+
+Node* recursiveFindKthNode(Node *head, int k){
+  if(k == 0){
     return head;
-    //STUB: edit with the correct output, according to the lab instructions, using recursion
+  } else {
+    return recursiveFindKthNode(head-> next, k - 1);
+  }
 }
+
 
 
 /*Given the head of a linked list, delete the kth node from the linked list
@@ -71,7 +68,10 @@ Node* recursiveDeleteKthNode(Node *head, int k) {
     if(k == 0){
       Node * newnode = head -> next;
       return newnode;
-    } else {
+    } else if (k == 1){
+      head -> next = recursiveDeleteKthNode(head-> next, k - 1)
+    } 
+      } else {
       recursiveDeleteKthNode(head-> next, k - 1);
     }
     return head;
