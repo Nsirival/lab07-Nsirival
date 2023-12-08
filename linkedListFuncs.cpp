@@ -44,12 +44,17 @@ int recursiveLargestValue(Node* head) {
  * Return &n3
  */
 Node* recursiveFindKthNode(Node *head, int k){
+  if(head == NULL){
+    return NULL;
+  }
+
   if(k == 1){
     return head;
   } else {
-    return recursiveFindKthNode(head-> next, k - 1);
+    return recursiveFindKthNode(head->next, k - 1);
   }
 }
+
 
 
 /*Given the head of a linked list, delete the kth node from the linked list
