@@ -75,13 +75,12 @@ Node* recursiveDeleteKthNode(Node *head, int k) {
        return NULL; 
     if(k == 1){
       Node * nextnode = head -> next;
-      delete(head);
-      return nextnode;
+      head = nextnode;
     } else {
     
       return recursiveDeleteKthNode(head-> next, k - 1);
     }
-    //STUB: edit with the correct output, according to the lab instructions, using recursion
+    return head;//STUB: edit with the correct output, according to the lab instructions, using recursion
 }
 
 /*Given the head of a linked list, delete the first k nodes from the linked list
