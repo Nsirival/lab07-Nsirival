@@ -25,7 +25,7 @@ int recursiveSum(Node* head) {
 //you may assume the list has at least one element
 int recursiveLargestValue(Node* head) {
   // int max = head -> data;
-  // if(head -> next == nullptr){
+  // if(head == nullptr){
   //    return max;
   // } else {
   //   if(recursiveLargestValue(head -> next) > max){
@@ -103,9 +103,7 @@ Node* recursiveRemoveKFromFront(Node *head, int k) {
 
 Node* recursiveElementwiseSum(Node *head1, Node *head2) {
     Node * newNode = new Node;
-    if(head1 -> next == nullptr ||head2 -> next == nullptr){
-        newNode -> data = head1 -> data + head2 -> data;
-        newNode -> next = nullptr;
+    if(head1  == nullptr ||head2 == nullptr){
     } else {
         newNode -> data = head1 -> data + head2 -> data;
         newNode -> next = recursiveElementwiseSum(head1-> next, head2-> next);
@@ -113,7 +111,6 @@ Node* recursiveElementwiseSum(Node *head1, Node *head2) {
     return newNode;
     //STUB: edit with the correct output, according to the lab instructions, using recursion
 }
-
 
 /*BONUS: Given the heads of two linked lists, splice the second linked list into the first, alternating elements from each list
  * 
