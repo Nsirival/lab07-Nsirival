@@ -67,27 +67,21 @@ Node* recursiveFindKthNode(Node *head, int k){
 * Delete n2 and return &n1
 * New list should look like this: n1 -> n3 -> n4
 */
-Node* recursiveDeleteKthNode(Node* start, int k) 
-{ 
-    // If invalid k 
-    if (k < 1) 
-       return start; 
-  
-    // If linked list is empty  
-    if (start == NULL) 
+Node* recursiveDeleteKthNode(Node *head, int k) {
+    
+    if (head == NULL) 
        return NULL; 
-   
-    // Base case (start needs to be deleted) 
-    if (k == 1) 
-    { 
-        Node *res = start->next; 
-        delete(start); 
-        return res;   
-    } 
-      
-    start->next = recursiveDeleteKthNode(start->next, k-1); 
-    return start; 
-} 
+    if(k == 1){
+      Node * nextnode = head -> next;
+      delete(head);
+      return nextnode;
+    } else {
+    
+      head -> next = recursiveDeleteKthNode(head-> next, k - 1);
+    }
+    return head;
+    //STUB: edit with the correct output, according to the lab instructions, using recursion
+}
 
 /*Given the head of a linked list, delete the first k nodes from the linked list
  *k will always be less than the length of the linked list
