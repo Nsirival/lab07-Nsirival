@@ -25,8 +25,8 @@ int recursiveSum(Node* head) {
 //you may assume the list has at least one element
 int recursiveLargestValue(Node* head) {
   
-  if(head -> next == nullptr){
-     return head -> data;
+  if(head == NULL){
+     return 0;
   } else {
     if(recursiveLargestValue(head -> next) > head -> data){
       return recursiveLargestValue(head -> next);
