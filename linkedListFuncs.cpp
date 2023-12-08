@@ -104,6 +104,7 @@ Node* recursiveRemoveKFromFront(Node *head, int k) {
 Node* recursiveElementwiseSum(Node *head1, Node *head2) {
     Node * newNode = new Node;
     if(head1  == nullptr ||head2 == nullptr){
+        newNode = nullptr;
     } else {
         newNode -> data = head1 -> data + head2 -> data;
         newNode -> next = recursiveElementwiseSum(head1-> next, head2-> next);
