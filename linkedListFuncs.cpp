@@ -70,10 +70,10 @@ Node* recursiveDeleteKthNode(Node *head, int k) {
       return newnode;
     } else if (k == 1){
       head -> next = recursiveDeleteKthNode(head-> next, k - 1);
-      return recursiveDeleteKthNode(head-> next, k - 1);
     } else {
       return recursiveDeleteKthNode(head-> next, k - 1);
     }
+    return head;
     //STUB: edit with the correct output, according to the lab instructions, using recursion
 }
 
