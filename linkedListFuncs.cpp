@@ -67,12 +67,14 @@ Node* recursiveFindKthNode(Node *head, int k){
 * New list should look like this: n1 -> n3 -> n4
 */
 Node* recursiveDeleteKthNode(Node *head, int k) {
-    if(k == 0){
+    if(k == 1){
       head = head -> next;
-    } else {
+      return head;
+    } 
+    else {
       recursiveDeleteKthNode(head-> next, k - 1);
     }
-    return head;
+    
     //STUB: edit with the correct output, according to the lab instructions, using recursion
 }
 
