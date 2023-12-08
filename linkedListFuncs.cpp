@@ -149,3 +149,4 @@ Node* recursiveSplice(Node* head1, Node* head2) {
         head2->next = recursiveSplice(temp, head2->next);
         return head1;
   }
+}
