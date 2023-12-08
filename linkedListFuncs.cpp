@@ -46,11 +46,14 @@ int recursiveLargestValue(Node* head) {
 Node* recursiveDeleteKthNode(Node *head, int k) {
     if(k == 0){
       Node * newnode = head -> next;
-      delete(head);
       return newnode;
-    } else {
+    } else if (k == 1){
+      head -> next = recursiveDeleteKthNode(head-> next, k - 1)
+    } 
+      } else {
       recursiveDeleteKthNode(head-> next, k - 1);
     }
+    return head;
     //STUB: edit with the correct output, according to the lab instructions, using recursion
 }
 
@@ -67,7 +70,6 @@ Node* recursiveDeleteKthNode(Node *head, int k) {
 Node* recursiveDeleteKthNode(Node *head, int k) {
     if(k == 0){
       Node * newnode = head -> next;
-      delete(head);
       return newnode;
     } else {
       recursiveDeleteKthNode(head-> next, k - 1);
