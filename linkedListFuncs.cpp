@@ -73,8 +73,6 @@ Node* recursiveDeleteKthNode(Node *head, int k) {
     // If linked list is empty  
     if (head == NULL) 
        return NULL; 
-    if (k < 1) 
-       return head; 
     if(k == 1){
       Node * nextnode = head -> next;
       delete(head);
