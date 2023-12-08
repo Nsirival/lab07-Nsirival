@@ -63,7 +63,9 @@ Node* recursiveFindKthNode(Node *head, int k){
 */
 Node* recursiveDeleteKthNode(Node *head, int k) {
     if(k == 0){
-      head = head -> next;
+      Node * newnode = head -> next;
+      delete(head);
+      return newnode;
     } else {
       recursiveDeleteKthNode(head-> next, k - 1);
     }
