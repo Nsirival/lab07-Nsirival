@@ -24,10 +24,15 @@ int recursiveSum(Node* head) {
 //return the largest value in the linked list using a recursive approach
 //you may assume the list has at least one element
 int recursiveLargestValue(Node* head) {
-  if(head -> next == nullptr){
-     if()
-  } 
-  
+  // int max = head -> data;
+  // if(head -> next == nullptr){
+  //    return max;
+  // } else {
+  //   if(recursiveLargestValue(head -> next) > max){
+  //     max = 
+  //   }
+  // }
+  return 3;
 }
 
 
@@ -39,8 +44,11 @@ int recursiveLargestValue(Node* head) {
  * Return &n3
  */
 Node* recursiveFindKthNode(Node *head, int k){
-    return NULL;
-    //STUB: edit with the correct output, according to the lab instructions, using recursion
+  if(k == 0){
+    return head;
+  } else {
+    return recursiveFindKthNode(head-> next, k - 1);
+  }
 }
 
 
@@ -54,7 +62,12 @@ Node* recursiveFindKthNode(Node *head, int k){
 * New list should look like this: n1 -> n3 -> n4
 */
 Node* recursiveDeleteKthNode(Node *head, int k) {
-    return NULL;
+    if(k == 0){
+      head = head -> next;
+    } else {
+      recursiveDeleteKthNode(head-> next, k - 1);
+    }
+    return head;
     //STUB: edit with the correct output, according to the lab instructions, using recursion
 }
 
@@ -68,7 +81,12 @@ Node* recursiveDeleteKthNode(Node *head, int k) {
 * Delete n1, n2 and return &n3
 */
 Node* recursiveRemoveKFromFront(Node *head, int k) {
-    return NULL;
+    if(k == 0){
+        return head;
+    } else {
+        recursiveRemoveKFromFront(head -> next, k - 1);
+        head = NULL;
+    }
     //STUB: edit with the correct output, according to the lab instructions, using recursion
 }
 
@@ -80,9 +98,18 @@ Node* recursiveRemoveKFromFront(Node *head, int k) {
  * 	    List 2: 4 -> 5 -> 6
  * Return &head of the linked list 5 -> 7 -> 9 -> 12
  */
+Node * sum = new Node;
+
 Node* recursiveElementwiseSum(Node *head1, Node *head2) {
-    return NULL;
+    // if(head1 -> next == nullptr || head2 -> next = nullptr){
+    //     Node * newNode  = new Node;
+    //     newNode -> data = head1 -> data + head2 -> data;
+        
+    // } else {
+    //     sum 
+    // }
     //STUB: edit with the correct output, according to the lab instructions, using recursion
+  return head;
 }
 
 
