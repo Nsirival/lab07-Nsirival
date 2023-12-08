@@ -110,35 +110,42 @@ Node* recursiveRemoveKFromFront(Node *head, int k) {
  * Return &head of the linked list 5 -> 7 -> 9 -> 12
  */
 
-Node* recursiveElementwiseSum(Node *head1, Node *head2) {
-    Node* sum = new Node;
-    if(head1 -> next == nullptr && head2 -> next == nullptr){
-        return NULL;
-    } else if(head1 -> next == nullptr){
-        sum -> data = head2 -> data;
-        sum -> next = recursiveElementwiseSum(head1 -> next , head2 -> next);
-    } else if(head2 -> next == nullptr){
-        sum -> data = head1 -> data;
-        sum -> next = recursiveElementwiseSum(head1 -> next , head2 -> next);
-    } else {
-        sum -> data = head1 -> data + head2 -> data;
-        sum -> next = recursiveElementwiseSum(head1 -> next , head2 -> next);
-    }
-    // STUB: edit with the correct output, according to the lab instructions, using recursion
-    return sum;
+Node* recursiveElementwiseSum(Node head1, Nodehead2) {
+  if (head1 == nullptr && head2 == nullptr) {
+        return nullptr;
+  } 
+  else {
+    Node* newHead = new Node;
+    newHead->data = (head1 ? head1->data : 0) + (head2 ? head2->data : 0);
+    Node* nextNode = recursiveElementwiseSum(head1 ? head1->next : nullptr, head2 ? head2->next : nullptr);
+    newHead->next = nextNode;
+    return newHead;
+  }
 }
 
 
 /*BONUS: Given the heads of two linked lists, splice the second linked list into the first, alternating elements from each list
- * 
- * The first element of the newly arranged linked list will always be head1, unless head1 is NULL (in which case just return head2)
- *
- * You MUST modify the linked lists themselves and DO NOT create another list or any new nodes
- *
- * Example: List 1: 1->2->3, List 2: 4 -> 5 -> 6
- * Return &head of 1 -> 4 -> 2 -> 5 -> 3 -> 6
- */
-Node* recursiveSplice(Node *head1, Node *head2) {
-    return NULL;
-    //STUB: edit with the correct output, according to the lab instructions, using recursion
-}
+ 
+The first element of the newly arranged linked list will always be head1, unless head1 is NULL (in which case just return head2)
+*
+You MUST modify the linked lists themselves and DO NOT create another list or any new nodes
+*
+Example: List 1: 1->2->3, List 2: 4 -> 5 -> 6
+Return &head of 1 -> 4 -> 2 -> 5 -> 3 -> 6
+*/
+Node* recursiveSplice(Node* head1, Node* head2) {
+  if(head1 == nullptr && head2 == nullptr) {
+        return nullptr;
+  }
+  else if(head1 == nullptr) {
+        return head2;
+  } 
+  else if(head2 == nullptr) {
+        return head1;
+  } 
+  else{
+        Node* temp = head1->next;
+        head1->next = head2;
+        head2->next = recursiveSplice(temp, head2->next);
+        return head1;
+  }
