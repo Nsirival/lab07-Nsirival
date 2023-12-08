@@ -30,6 +30,8 @@ int recursiveLargestValue(Node* head) {
   } else {
     if(recursiveLargestValue(head -> next) > head -> data){
       return recursiveLargestValue(head -> next);
+    } else {
+      return head -> data;
     }
   }
 }
